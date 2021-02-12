@@ -10,14 +10,14 @@ public class BankAccount {
 	
 	boolean deposit(int amount) {
 		
-		if (amount < 0 || owner.cashAmount < amount) {
-			System.out.printf("입금 실패입니다. 잔고: %d원, 현금: %d원\r\n", balance, owner.cashAmount);
+		if (amount < 0 || owner.getCashAmount() < amount) {
+			System.out.printf("입금 실패입니다. 잔고: %d원, 현금: %d원\r\n", balance, owner.getCashAmount());
 			return false;
 		}
 		
 		balance = balance + amount ;
-		owner.cashAmount = owner.cashAmount - amount;
-		System.out.printf("%d원 입금하였습니다. 잔고: %d원, 현금: %d원\r\n", amount, balance, owner.cashAmount);
+		owner.setCashAmount(owner.getCashAmount() - amount);
+		System.out.printf("%d원 입금하였습니다. 잔고: %d원, 현금: %d원\r\n", amount, balance, owner.getCashAmount());
 		return true;
 		
 	}
@@ -27,13 +27,13 @@ public class BankAccount {
 	boolean withdraw(int amount) {
 		
 		if (amount < 0 || balance < amount)  {
-			System.out.printf("출금 실패입니다. 잔고: %d원, 현금: %d원\r\n", balance, owner.cashAmount);
+			System.out.printf("출금 실패입니다. 잔고: %d원, 현금: %d원\r\n", balance, owner.getCashAmount());
 			return false;
 		}
 		
 		balance -= amount;
-		owner.cashAmount += amount;
-		System.out.printf("%d원 입금하였습니다. 잔고: %d원, 현금: %d원\r\n", amount, balance, owner.cashAmount);
+		owner.setCashAmount(owner.getCashAmount()+amount);
+		System.out.printf("%d원 입금하였습니다. 잔고: %d원, 현금: %d원\r\n", amount, balance, owner.getCashAmount());
 		return true;
 		
 	}

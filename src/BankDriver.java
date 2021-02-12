@@ -4,35 +4,35 @@ public class BankDriver {
 	public static void main(String[] args) {
 		// »ç¶÷ ¼±¾ð
 		Person p1 =new Person();
-		p1.name = "±è½ÅÀÇ";
-		p1.age = 28;
-		p1.cashAmount = 30000;
+		p1.setName("±è½ÅÀÇ");
+		p1.setAge(28);
+		p1.setCashAmount(30000);
 		
 		// Å×½ºÆ®
-		System.out.println(p1.name);
-		System.out.println(p1.age);
-		System.out.println(p1.account);
+		System.out.println(p1.getName());
+		System.out.println(p1.getAge());
+		System.out.println(p1.getAccount());
 		
 		// ÀºÇà °èÁÂ »ý¼º
 		BankAccount a1 = new BankAccount();
 		a1.balance = 100000;
 		
-		p1.account = a1;
+		p1.setAccount(a1);
 		a1.owner = p1;
 		
 		Person p2 = new Person();
-		p2.name = "±è¼ºµ¿";
-		p2.age = 34;
-		p2.cashAmount = 100000;
+		p2.setName("±è¼ºµ¿");
+		p2.setAge(34);
+		p2.setCashAmount(100000);
 		
 		BankAccount a2 = new BankAccount();
 		
 		
 		a2.balance = 500000;
-		p2.account = a2;
+		p2.setAccount(a2);
 		a2.owner = p2;
-		System.out.println(p2.cashAmount);
-		System.out.println(p2.account);
+		System.out.println(p2.getCashAmount());
+		System.out.println(p2.getAccount());
 		
 		a2.deposit(30000);
 		a2.withdraw(170000);
