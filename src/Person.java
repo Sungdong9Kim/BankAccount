@@ -5,35 +5,40 @@ public class Person {
 	private int cashAmount;
 	private BankAccount account;
 	
-	void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	
-	String getName() {
+	public String getName() {
 		return name;
 	}
 	
-	void setAge(int age) {
-		this.age = age;
+	public void setAge(int age) {
+		if (age >=0 ) {
+			this.age = age;
+		}		
 	}
 	
-	int getAge() {
+	public int getAge() {
 		return age;
 	}
 	
-	void setCashAmount(int cashAmount) {
-		this.cashAmount = cashAmount;
+	public void setCashAmount(int cashAmount) {
+		if (cashAmount >= 0) {
+			this.cashAmount = cashAmount;			
+		}
+		
 	}
 	
-	int getCashAmount() {
+	public int getCashAmount() {
 		return cashAmount;
 	}
 	
-	void setAccount(BankAccount account) {
+	public void setAccount(BankAccount account) {
 		this.account = account;
 	}
 	
-	BankAccount getAccount() {
+	public BankAccount getAccount() {
 		return account;
 	}
 	
