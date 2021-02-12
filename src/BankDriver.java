@@ -15,10 +15,10 @@ public class BankDriver {
 		
 		// 篮青 拌谅 积己
 		BankAccount a1 = new BankAccount();
-		a1.balance = 100000;
+		a1.setBalance(100000);
 		
 		p1.setAccount(a1);
-		a1.owner = p1;
+		a1.setOwner(p1);
 		
 		Person p2 = new Person();
 		p2.setName("辫己悼");
@@ -28,9 +28,9 @@ public class BankDriver {
 		BankAccount a2 = new BankAccount();
 		
 		
-		a2.balance = 500000;
+		a2.setBalance(500000);
 		p2.setAccount(a2);
-		a2.owner = p2;
+		a2.setOwner(p2);
 		System.out.println(p2.getCashAmount());
 		System.out.println(p2.getAccount());
 		

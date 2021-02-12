@@ -1,12 +1,28 @@
 
 public class BankAccount {
 	
-	int balance;
+	private int balance;
 	
 	// 파라미터 : 입금할 액수(정수)
 	// 리턴 : 성공여부(불린)
 	
-	Person owner = new Person();
+	private Person owner;
+	
+	void setBalance(int newBalance) {
+		balance = newBalance;
+	}
+	
+	public int getBalance() {
+		return balance;
+	}
+	
+	void setOwner(Person newOwner) {
+		owner = newOwner;
+	}
+	
+	public Person getPerson() {
+		return owner;
+	}
 	
 	boolean deposit(int amount) {
 		
@@ -33,7 +49,7 @@ public class BankAccount {
 		
 		balance -= amount;
 		owner.setCashAmount(owner.getCashAmount()+amount);
-		System.out.printf("%d원 입금하였습니다. 잔고: %d원, 현금: %d원\r\n", amount, balance, owner.getCashAmount());
+		System.out.printf("%d원 출금하였습니다. 잔고: %d원, 현금: %d원\r\n", amount, balance, owner.getCashAmount());
 		return true;
 		
 	}
