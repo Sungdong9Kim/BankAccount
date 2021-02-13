@@ -57,14 +57,62 @@ public class BankAccount {
 		return true;
 		
 	}
+	/*Function that I made for transfer
 	
-	// 첫 번째 파라미터 : 받는 사람 (Person)
-	// 두 번째 파라미터 : 이체할 금액 (정수)
-	// 리턴 : 성공여부 (불린)
-	/*
-	boolean transfer(Person to, int amount) {
+	public boolean transfer(Person to, int amount) {
+		if((amount < 0) || (getBalance() < amount)) {
+			System.out.printf("false - from: "+getPerson().getName()+", to: "+to.getName()+", amount: "+amount+", balance: "+balance+"\n");
+			return false;
+		}
+		else {
+			setBalance(getBalance()- amount);
+			to.getAccount().setBalance(to.getAccount().getBalance() + amount);
+			
+			System.out.printf("true - from: "+getPerson().getName()+", to: "+to.getName()+", amount: "+amount+", balance: "+balance+"\n");
+			return true;
+		}
+		
+	}
+	
+	public boolean transfer(BankAccount to, int amount) {
+		if((amount < 0)|| (getBalance() < amount)) {
+			System.out.printf("false - from: "+getPerson().getName()+", to: "+to.getPerson().getName()+", amount: "+amount+", balance: "+balance+"\n");
+			return false;
+		}
+		else {
+			setBalance(getBalance() - amount);
+			to.setBalance(to.getBalance() + amount);
+			System.out.printf("true - from: "+getPerson().getName()+", to: "+to.getPerson().getName()+", amount: "+amount+", balance: "+balance+"\n");
+			return true;
+		}
 		
 	}*/
+	
+	//Correct function for transfer
+	
+	public boolean transfer(BankAccount to, int amount) {
+		boolean success;
+		
+		if(amount < 0 || amount > balance) {
+			success = false;
+		}
+		else {
+			success = true;
+			balance -= amount;
+			to.balance += amount;
+		}
+		
+		System.out.println(success + " - from: " + owner.getName()
+        + ", to: " + to.owner.getName()
+        + ", amount: " + amount
+        + ", balance: " + balance);
+		
+		return success;
+	}
+	
+	public boolean transfer(Person to, int amount) {
+		return transfer(to.getAccount(), amount);
+	}
 	
 
 }
